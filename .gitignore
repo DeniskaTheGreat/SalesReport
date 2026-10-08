@@ -1,0 +1,27 @@
+# Python
+
+**pycache**/
+*.py[cod]
+
+# Virtual environment
+
+.venv/
+venv/
+
+# PyCharm
+
+.idea/
+
+# PyInstaller build files
+
+build/
+dist/
+*.spec
+
+# Runtime data
+
+input/*
+!input/.gitkeep
+
+output/*
+!output/.gitkeep
