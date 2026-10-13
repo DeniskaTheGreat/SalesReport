@@ -14,10 +14,14 @@ output_folder = project_folder / "output"
 
 xlsx_files = list(input_folder.glob('*.xlsx'))
 
+
 if not xlsx_files:
     print("В папке input нет Excel-файлов")
+    input("Поместите Excel-файлы в папку input и нажмите Enter для выхода...")
+    sys.exit()
 else:
     dfs = []
+
 
     required_columns = ["name", "amount", "city"]
 
