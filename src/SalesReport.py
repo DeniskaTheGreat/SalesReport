@@ -130,7 +130,6 @@ else:
 
     wb = load_workbook(output_file)
 
-    # Стиль заливки
     header_fill = PatternFill(
         fill_type="solid",
         fgColor="D9EAF7"
@@ -144,13 +143,11 @@ else:
     )
 
     for ws in wb.worksheets:
-        # Выравнивание и границы
         for row in ws.iter_rows():
             for cell in row:
                 cell.alignment = Alignment(vertical="center")
                 cell.border = thin_border
 
-        # Оформление заголовков
         for cell in ws[1]:
             cell.font = Font(
                 bold=True,
@@ -162,13 +159,10 @@ else:
                 vertical="center"
             )
 
-        # Закрепляем заголовок
         ws.freeze_panes = "A2"
 
-        # Включаем фильтр
         ws.auto_filter.ref = ws.dimensions
 
-        # Автоматическая ширина столбцов
         for column in ws.columns:
             max_length = 0
 
@@ -179,7 +173,6 @@ else:
             width = max_length + 4
             ws.column_dimensions[column[0].column_letter].width = width
 
-        # Форматы чисел для таблиц с заказами и отчёта по городам
         for cell in ws[1]:
             column_letter = cell.column_letter
 
@@ -195,7 +188,6 @@ else:
                 for row in range(2, ws.max_row + 1):
                     ws[f"{column_letter}{row}"].number_format = '0  '
 
-    # Отдельно форматируем значения в общем отчёте
     ws = wb["Общий отчёт"]
 
     for row in range(2, ws.max_row + 1):
@@ -214,5 +206,4 @@ else:
         ):
             value_cell.number_format = '#,##0  '
 
-    # Сохраняем файл только после всех изменений
     wb.save(output_file)
