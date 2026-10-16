@@ -91,3 +91,17 @@ python -m PyInstaller --noconfirm --clean --onedir --console --name SalesReport 
 ## Статус проекта
 
 Первая рабочая версия готова. Проект демонстрирует применение Python, pandas и openpyxl для автоматизации обработки табличных данных и формирования Excel-отчётности.
+
+## Пример работы
+
+### Входные Excel-файлы
+
+![Входные Excel-файлы](screenshots/01-input-files.png)
+
+### Запуск программы
+
+![Запуск SalesReport](screenshots/02-program.png)
+
+### Листы итогового отчёта
+
+![Листы итогового отчёта](screenshots/03-report-pages.png)
